@@ -2,7 +2,6 @@
   <div class="invitation-container" :style="{
   '--bird1': `url(${bird1})`
 }">
-    <!-- <img :src="bird1" alt="burung" class="bird bird-1" /> -->
 
 <div class="cloud-container">
   <div class="cloud cloud-1"></div>
@@ -38,10 +37,6 @@ import gallery9 from '../assets/example9.jpg'
 import bird1 from '../assets/bird1.png'
 import bird2 from '../assets/bird2.png'
 import musicFile from '../assets/musik.mp3'
-
-
-// GANTI EVENTDATE JIKA TANGGAL DIGANTI
-const eventDate = ref('2026-06-01T15:00:00')
 
 const isVisibleMakna = ref(false);
 const isVisibleAcara = ref(false)
@@ -260,21 +255,34 @@ function scrollToAcara() {
   background-size: cover;
   opacity: 0.7;
 
-  clip-path: polygon(
-    0 100vh, 
-    0 30vh, 
-    10% 32vh, 
-    20% 28vh, 
-    30% 27vh, 
-    40% 30vh, 
-    50% 26vh, 
-    60% 29vh, 
-    70% 28vh, 
-    80% 30vh, 
-    90% 28vh, 
-    100% 29vh, 
-    100% 100vh
-  );
+    clip-path: polygon(
+      0 100vh,
+      0 39vh,
+      5% 38vh,
+      10% 36vh,
+      12% 34vh,
+      15% 33vh,
+      17% 32vh,
+      19% 32vh,
+      20% 32vh,
+      22% 32.5vh,
+      30% 33vh,
+      36% 33vh,
+      40% 34vh,
+      41% 34.5vh,
+      44% 34vh,
+      45% 33.5vh,
+      /* 47% 35vh, */
+      48% 34vh,
+      50% 32vh,
+      55% 30vh,
+      68% 28vh,
+      80% 31vh,
+      90% 35vh,
+      92% 32vh,
+      100% 27vh,
+      100% 100vh
+    );
 }
 
 /* Untuk responsif - memastikan konten tetap terlihat */
@@ -285,17 +293,30 @@ function scrollToAcara() {
   .invitation-container::after { 
     clip-path: polygon(
       0 100vh,
-      0 35vh,
-      10% 38vh,
-      20% 34vh,
+      0 39vh,
+      5% 38vh,
+      10% 36vh,
+      12% 34vh,
+      15% 33vh,
+      17% 32vh,
+      19% 32vh,
+      20% 32vh,
+      22% 32.5vh,
       30% 33vh,
-      40% 36vh,
+      36% 33vh,
+      40% 34vh,
+      41% 34.5vh,
+      44% 34vh,
+      45% 33.5vh,
+      /* 47% 35vh, */
+      48% 34vh,
       50% 32vh,
-      60% 35vh,
-      70% 34vh,
-      80% 36vh,
+      55% 30vh,
+      68% 28vh,
+      80% 31vh,
       90% 35vh,
-      100% 36vh,
+      92% 32vh,
+      100% 27vh,
       100% 100vh
     );
   }

@@ -73,7 +73,7 @@
         rel="noopener"
         class="maps-button"
     >
-        🎯 Buka di Google Maps
+       Buka di Google Maps
     </a>
     </section>
 
@@ -302,6 +302,16 @@ function scrollToAcara() {
 
 /* --- Container Utama --- */
 
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
 .profile-img {
     width: 150px;
     height: 150px;
@@ -421,9 +431,6 @@ function scrollToAcara() {
     color: #d2691e;
 }
 
-.amplop-section p{
-    font-weight: bold;
-}
 
 .amplop-button {
   display: inline-block;
@@ -444,41 +451,46 @@ function scrollToAcara() {
 }
 
 .rekening-box {
-    margin-top: 1.5rem;
-    padding: 1rem;
-    border-radius: 8px;
-    font-family: "Lora", serif;
-    font-size: 15px;
-    line-height: 1.6;
-    gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
+
 .rekening-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #fdf1e3;
-    padding: 2rem;
-    border-radius: 8px;
-    margin-bottom: 2rem;
-    box-shadow: 10px 10px 3px rgba(0, 0, 0, 0.219);
+  background-color: #fffaf5;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  word-break: break-word;
+}
+
+.rekening-item span {
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .copy-btn {
-  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 20px;
   background-color: #9c6c4a;
   color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 30px;
   font-weight: bold;
-  font-size: 1rem;
-  text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  white-space: nowrap;
 }
 
 .copy-btn:hover {
-      background-color: #8d4a21;
-  transform: translateY(-2px);
+  background-color: #8d4a21;
 }
 
 .gallery-grid {
@@ -552,6 +564,7 @@ html {
 
   .maps-button {
     width: 50%;
+    font-size: 10px;
   }
 }
 
