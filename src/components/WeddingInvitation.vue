@@ -86,14 +86,34 @@ function toggleMusic() {
 
 
 onMounted(() => {
-    if (audioRef.value) {
+  if (audioRef.value) {
     audioRef.value.play().then(() => {
-      isPlaying.value = true
+      isPlaying.value = true;
     }).catch(() => {
-      // Autoplay mungkin diblokir browser, jadi gak masalah
-      isPlaying.value = false
-    })
+      // Autoplay mungkin diblokir browser
+      isPlaying.value = false;
+    });
   }
+    const handleVisibilityChange = () => {
+    if (document.hidden) {
+      // Tab tidak aktif, pause musik
+      if (audioRef.value && isPlaying.value) {
+        audioRef.value.pause();
+        isPlaying.value = false;
+      }
+    } else {
+      // Tab aktif, play musik otomatis
+      if (audioRef.value && !isPlaying.value) {
+        audioRef.value.play().then(() => {
+          isPlaying.value = true;
+        }).catch(() => {
+          isPlaying.value = false;
+        });
+      }
+    }
+  };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
   const createObserver = (refElement, visibleRef) => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -122,7 +142,7 @@ onMounted(() => {
         }
       });
     },
-    { threshold: 0.3 }
+    { threshold: 0.5 }
   );
 
   imageRefs.value.forEach((img) => {
@@ -131,11 +151,13 @@ onMounted(() => {
 });
 
 // Optional: stop musik saat komponen di-unmount
-onUnmounted(() => {
-  if (audioRef.value) {
-    audioRef.value.pause()
-  }
-})
+  onUnmounted(() => {
+    if (audioRef.value) {
+      audioRef.value.pause();
+      isPlaying.value = false;
+    }
+    document.removeEventListener('visibilitychange', handleVisibilityChange);
+  });
 
 function copyToClipboard(text, who) {
   navigator.clipboard.writeText(text).then(() => {
