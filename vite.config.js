@@ -1,7 +1,8 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
-// https://vite.dev/config/
+// Ganti 'web-undangan' dengan nama repo GitHub kamu
 export default defineConfig({
+  base: '/web-undangan/',
   plugins: [vue()],
 })
