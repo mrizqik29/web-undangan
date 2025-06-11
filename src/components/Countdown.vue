@@ -1,5 +1,16 @@
 <template>
-  <div class="countdown">
+  <div class="countdown"
+  :style="{
+                '--boxatas-countdown': `url(${boxatas})`,
+                '--boxbawah-countdown': `url(${boxbawah})`,
+                '--boxgarisatas-countdown': `url(${boxgaris})`,
+                '--boxgarisbawah-countdown': `url(${boxgaris})`,
+                }">
+
+          <div class="atas-countdown"></div>
+          <div class="garisatas-countdown"></div>
+          <div class="garisbawah-countdown" :class="{ turun: showRekening }"></div>
+          <div class="bawah-countdown" :class="{ turun: showRekening }"></div>
         <h3 class="judulku">Acara Pernikahan Akan Dimulai</h3>
         <p v-if="timeLeft > 0" class="countdown-modern">
         <span class="days">{{ days }} Hari</span>
@@ -17,6 +28,9 @@
   
   <script setup>
   import { ref, onMounted, onUnmounted } from 'vue'
+  import boxatas from '../assets/box-atas.png'
+  import boxbawah from '../assets/box-bawah.png'
+  import boxgaris from '../assets/box-garis.png'
   
   const props = defineProps({
     eventDate: {
@@ -30,6 +44,7 @@
   const hours = ref(0)
   const minutes = ref(0)
   const seconds = ref(0)
+  
   
   let timer = null
   
@@ -86,14 +101,70 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
   .countdown {
-    background-color: #f5e1d3;
-    padding: 2rem;
-    border-radius: 10px;
-    margin: 2rem auto;
-    max-width: 500px;
-    text-align: center;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.219);
+  padding-bottom: 2rem;
+  margin: 5rem auto 2rem auto; /* Tengah horizontal + jarak atas bawah */
+  max-width: 500px;
+  z-index: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   }
+
+  .atas-countdown {
+  position: absolute;
+  top: -3.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 20rem;
+  z-index: 1;
+  background-image: var(--boxatas-countdown);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Garis atas */
+.garisatas-countdown {
+  position: absolute;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 20rem;
+  z-index: 1;
+  background-image: var(--boxgarisatas-countdown);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Garis bawah */
+.garisbawah-countdown {
+  position: absolute;
+  top: 18.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 20rem;
+  z-index: 1;
+  background-image: var(--boxgarisbawah-countdown);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Elemen bawah */
+.bawah-countdown {
+  position: absolute;
+  top: 19.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 20rem;
+  z-index: 1;
+  background-image: var(--boxbawah-countdown);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
   
   
   /* Countdown modern */
@@ -110,15 +181,15 @@
   
   .countdown p.countdown-modern .days {
     font-size: 2rem;
-    color: #9c6c4a;
-font-family: "Lora", serif;
+    color: #D5B253;
+    font-family: "Lora", serif;
     font-weight: bold;
   }
   
   .countdown p.countdown-modern .time {
     font-size: 2.5rem;
-font-family: "Lora", serif;
-    background-color: #9c6c4a;
+    font-family: "Lora", serif;
+    background-color: #D5B253;
     padding: 0.5rem 1rem;
     display: flex;
     justify-content: center;
@@ -129,8 +200,7 @@ font-family: "Lora", serif;
   .judulku{
     font-family: 'Great Vibes', cursive;
   font-size: 2.5rem;
-  color: #a0522d;
-  margin-bottom: 1rem;
+  color: #DAD3C8;
   }
   
   .countdown h2{
@@ -141,7 +211,7 @@ font-family: "Lora", serif;
   /* Saat countdown selesai */
   .countdown p.finished {
     font-size: 1.4rem;
-    color: #9c6c4a;
+    color: #1c3b2c;
     font-weight: bold;
     animation: fadeInPop 0.6s ease;
   }

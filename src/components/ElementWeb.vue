@@ -5,10 +5,21 @@
   class="fade-in"
   :class="{ visible: isVisibleHeader }"
 >
-  <h1 class="judul">The Weeding of </h1>
+  <h1 class="judul">UNDANGAN PERNIKAHAN </h1>
   <h1 class="namaku">Burhan & Tuti</h1>
-  <img :src="exampleImg" alt="Contoh Gambar" class="profile-img" />
-  <div class="atasnya">
+  <div class="profile-wrapper">
+    <img :src="exampleImg" alt="Contoh Gambar" class="profile-img" />
+  </div>
+  <div class="atasnya" :style="{
+  '--boxatasatasnya': `url(${boxatas})`,
+  '--boxbawah-atasnya': `url(${boxbawah})`,
+  '--boxgarisatas-atasnya': `url(${boxgaris})`,
+  '--boxgarisbawah-atasnya': `url(${boxgaris})`,
+  }">
+    <div class="atas-atasnya"></div>
+    <div class="garisatas-atasnya"></div>
+    <div class="garisbawah-atasnya"></div>
+    <div class="bawah-atasnya"></div>
     <p class="global">Dengan segala kerendahan hati, kami mengundang Anda untuk hadir dalam acara pernikahan kami.</p>
     <button class="btn-acara" @click="scrollToAcara">Acara</button>
   </div>
@@ -22,14 +33,18 @@
     :class="{ visible: isVisibleCouple }"
   >
     <p class="mempelai">Burhan Rem Belakang</p>
-    <p class="global">(Putra dari Aceng Kampas Rem & Ica Kaliper)</p>
-    <img :src="exampleImg" alt="Contoh Gambar" class="profile-img" />
+    <p class="keluarga">(Putra dari Aceng Kampas Rem & Ica Kaliper)</p>
+    <div class="profile-wrapper">
+      <img :src="exampleImg" alt="Contoh Gambar" class="profile-img" />
+    </div>
     <br>
     <p class="mempelai">&</p>
     <br>
     <p class="mempelai">Tuti Spakbor</p>
-    <p class="global">(Putri dari Ipul Tali Lansam & Sarah Kabel Tis)</p>
-    <img :src="exampleImg" alt="Contoh Gambar" class="profile-img" />
+    <p class="keluarga">(Putri dari Ipul Tali Lansam & Sarah Kabel Tis)</p>
+    <div class="profile-wrapper">
+      <img :src="exampleImg" alt="Contoh Gambar" class="profile-img" />
+    </div>
   </div>
   <br>
 </section>
@@ -38,12 +53,22 @@
       ref="maknaRef"
       class="makna fade-in"
       :class="{ visible: isVisibleMakna }"
-    >
-      <h3 class="lokasi-title">Makna Pernikahan</h3>
-      <p class="global">
-        Pernikahan adalah penyatuan dua insan dalam ikatan suci untuk saling mencintai,
-        menghormati, dan berjalan bersama dalam suka maupun duka.
-      </p>
+      :style="{
+                '--boxatas-makna': `url(${boxatas})`,
+                '--boxbawah-makna': `url(${boxbawah})`,
+                '--boxgarisatas-makna': `url(${boxgaris})`,
+                '--boxgarisbawah-makna': `url(${boxgaris})`,
+                }">
+
+          <div class="atas-makna"></div>
+          <div class="garisatas-makna"></div>
+          <div class="garisbawah-makna"></div>
+          <div class="bawah-makna"></div>
+          <h3 class="lokasi-title">Makna Pernikahan</h3>
+          <p class="global">
+            Pernikahan adalah penyatuan dua insan dalam ikatan suci untuk saling mencintai,
+            menghormati, dan berjalan bersama dalam suka maupun duka.
+          </p>
     </section>
 
     <section
@@ -51,18 +76,38 @@
       ref="acaraRef"
       class="event-details fade-in"
       :class="{ visible: isVisibleAcara }"
-    >
+      :style="{
+                '--boxatas-acara': `url(${boxatas})`,
+                '--boxbawah-acara': `url(${boxbawah})`,
+                '--boxgarisatas-acara': `url(${boxgaris})`,
+                '--boxgarisbawah-acara': `url(${boxgaris})`,
+                }">
+
+          <div class="atas-acara"></div>
+          <div class="garisatas-acara"></div>
+          <div class="garisbawah-acara"></div>
+          <div class="bawah-acara"></div>
       <h3 class="lokasi-title">Detail Acara</h3>
-      <p><strong>Tanggal:</strong> 1 Juni 2026</p>
-      <p><strong>Waktu:</strong> 10:00 WIB - Selesai</p>
-      <p><strong>Tempat:</strong> Gedung Serbaguna XYZ, Jakarta</p>
+      <p class="global"><strong>Tanggal:</strong> 1 Juni 2026</p>
+      <p class="global"><strong>Waktu:</strong> 10:00 WIB - Selesai</p>
+      <p class="global"><strong>Tempat:</strong> Gedung Serbaguna XYZ, Jakarta</p>
     </section>
 
     <section
     ref="lokasiRef"
     class="lokasi fade-in"
     :class="{ visible: isVisibleLokasi }"
-    >
+          :style="{
+                '--boxatas-lokasi': `url(${boxatas})`,
+                '--boxbawah-lokasi': `url(${boxbawah})`,
+                '--boxgarisatas-lokasi': `url(${boxgaris})`,
+                '--boxgarisbawah-lokasi': `url(${boxgaris})`,
+                }">
+
+          <div class="atas-lokasi"></div>
+          <div class="garisatas-lokasi"></div>
+          <div class="garisbawah-lokasi"></div>
+          <div class="bawah-lokasi"></div>
     <h3 class="lokasi-title">Lokasi Acara</h3>
     <p class="lokasi-description">
         Silakan klik tombol di bawah ini untuk melihat lokasi acara di Google Maps.
@@ -82,16 +127,28 @@
       ref="amplopRef"
       class="amplop-section fade-in"
       :class="{ visible: isVisibleAmplop }"
-    >
+              :style="{
+                '--boxatas-amlop': `url(${boxatas})`,
+                '--boxbawah-amlop': `url(${boxbawah})`,
+                '--boxgarisatas-amlop': `url(${boxgaris})`,
+                '--boxgarisbawah-amlop': `url(${boxgaris})`,
+                }">
+
+          <div class="atas-amlop"></div>
+          <div class="garisatas-amlop"></div>
+          <div class="garisbawah-amlop" :class="{ turun: showRekening }"></div>
+          <div class="bawah-amlop" :class="{ turun: showRekening }"></div>
       <h3 class="lokasi-title">Amplop Online</h3>
-      <p>Jika Anda berkenan memberikan hadiah, silakan klik tombol di bawah ini.</p>
+      <p class="global">Jika Anda berkenan memberikan hadiah, silakan klik tombol di bawah ini.</p>
       <button @click="showRekening = !showRekening" class="amplop-button">
         Kirim Amplop
       </button>
+    
 
+   <TransitionGroup name="rekeningku" tag="div">
       <div v-if="showRekening" class="rekening-box">
         <div class="rekening-item">
-          <p>
+          <p class="global">
             <strong>Burhan Rem Belakang</strong><br>
             Bank BCA - <span>{{ rekeningBurhan }}</span>
           </p>
@@ -101,7 +158,7 @@
         </div>
 
         <div class="rekening-item">
-          <p>
+          <p class="global">
             <strong>Tuti Spakbor</strong><br>
             Bank Mandiri - <span>{{ rekeningTuti }}</span>
           </p>
@@ -110,6 +167,7 @@
           </button>
         </div>
       </div>
+   </TransitionGroup>
     </section>
 
     <section
@@ -141,7 +199,17 @@
     ref="pesanRef"
     class="pesan fade-in"
     :class="{ visible: isVisiblePesan }"
-    >
+                  :style="{
+                '--boxatas-pesan': `url(${boxatas})`,
+                '--boxbawah-pesan': `url(${boxbawah})`,
+                '--boxgarisatas-pesan': `url(${boxgaris})`,
+                '--boxgarisbawah-pesan': `url(${boxgaris})`,
+                }">
+
+          <div class="atas-pesan"></div>
+          <div class="garisatas-pesan"></div>
+          <div class="garisbawah-pesan" :class="{ turun: showRekening }"></div>
+          <div class="bawah-pesan" :class="{ turun: showRekening }"></div>
     <h3 class="lokasi-title">Pesan</h3>
     <a
         href="https://docs.google.com/forms/d/e/1FAIpQLSc7CqrAFHfsH0x1RKN8qo7293yW8tiJnWHjH4kQUOipkHJ5hw/viewform?usp=dialog"
@@ -157,7 +225,7 @@
 
 <script setup>
 import CountdownTimer from './Countdown.vue'
-import exampleImg from '../assets/example.jpg'
+import exampleImg from '../assets/profile.jpg'
 import { ref, onMounted } from 'vue';
 import gallery1 from '../assets/example1.jpg'
 import gallery2 from '../assets/example2.jpg'
@@ -166,9 +234,9 @@ import gallery4 from '../assets/example4.jpg'
 import gallery5 from '../assets/example5.jpg'
 import gallery6 from '../assets/example6.jpg'
 import gallery7 from '../assets/example7.jpg'
-import gallery8 from '../assets/example8.jpg'
-import gallery9 from '../assets/example9.jpg'
-
+import boxatas from '../assets/box-atas.png'
+import boxbawah from '../assets/box-bawah.png'
+import boxgaris from '../assets/box-garis.png'
 
 // GANTI EVENTDATE JIKA TANGGAL DIGANTI
 const eventDate = ref('2026-06-01T15:00:00')
@@ -197,7 +265,7 @@ const copied = ref({ burhan: false, tuti: false })
 const galleryImages = [
   gallery1, gallery2, gallery3,
   gallery4, gallery5, gallery6,
-  gallery7, gallery8, gallery9,
+  gallery7,
 ];
 const imageRefs = ref([]);
 const isVisibleHeader = ref(false)
@@ -224,7 +292,7 @@ onMounted(() => {
   createObserver(galleryref, isVisibleGaleri);
   createObserver(pesanRef, isVisiblePesan);
   createObserver(countdownRef, isVisibleCountdown);
-//   createObserver(galeriRef, isVisibleGaleri);
+  createObserver(galeriRef, isVisibleGaleri);
   createObserver(rsvpRef, isVisibleRsvp);
   createObserver(headerRef, isVisibleHeader);
   createObserver(coupleRef, isVisibleCouple);
@@ -296,10 +364,7 @@ function scrollToAcara() {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Great+Vibes&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 /* --- Container Utama --- */
 
 * {
@@ -312,20 +377,29 @@ body {
   padding: 0;
 }
 
+
 .profile-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin: 1rem auto;
-    display: block;
+  width: 70%;
+  height: 70%;
+  z-index: 1;
 }
 
+.profile-overlay {
+  position: absolute;
+  top: -2px;
+  left: -10px;
+  width: 165px;
+  height: 165px;
+  z-index: 2;
+  pointer-events: none; /* Supaya tidak mengganggu klik */
+}
+
+
 .judul {
-    font-family: "Montserrat", sans-serif;
-    font-size: 20px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 50px;
     margin-bottom: 0.5rem;
-    color: #5a3e36;
+    color: #D5B253;
 }
 
 .couple-info {
@@ -333,13 +407,13 @@ body {
     justify-content: center;
     margin: 2rem 0;
     font-weight: 600;
-    color: #5a3e36;
+    color: #1c3b2c;
 }
 
 .global {
-    font-family: "Lora", serif;
-    font-size: 15px;
-    color: #5a3e36;
+    font-family: "Poppins", sans-serif;;
+    font-size: 15px; 
+    color: #DAD3C8;
 }
 
 .person h2 {
@@ -349,104 +423,255 @@ body {
 
 .namaku {
     font-size: 40px;
-    font-family: 'Great Vibes', cursive;
-    color: #5a3e36;
+    font-family: "Great Vibes", cursive;
+    color: #F9F5EF;
 }
 
 .mempelai {
-    font-family: 'Great Vibes', cursive;
+    font-family: "Great Vibes", cursive;
+    font-weight: bold;
     font-size: 40px;
-    color: #5a3e36;
+    color: #F9F5EF;
+}
+.keluarga {
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    color: #F9F5EF;
 }
 
 /* Mengubah background bagian-bagian konten menjadi transparan atau semi-transparan */
-.atasnya,
-.event-details,
-.lokasi,
-.pesan,
-.amplop-section,
-.gallery,
-.makna {
-    background-color: #f5e1d3;
-    padding: 2rem;
-    border-radius: 10px;
-    margin: 2rem auto;
-    max-width: 500px;
-    text-align: center;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.219);
+.event-details{
+  position: relative;
+  padding-bottom: 4rem;
+  margin: 5rem auto 2rem auto; /* Tengah horizontal + jarak atas bawah */
+  max-width: 500px;
+  z-index: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.atas-acara {
+  position: absolute;
+  top: -3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 20rem;
+  z-index: 1;
+  background-image: var(--boxatas-acara);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-.lokasi:hover {
-  transform: scale(1.02);
+/* Garis atas */
+.garisatas-acara {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 20rem;
+  z-index: 1;
+  background-image: var(--boxgarisatas-acara);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-.lokasi-title {
-  font-family: 'Great Vibes', cursive;
-  font-size: 2.5rem;
-  color: #a0522d;
-  margin-bottom: 1rem;
+/* Garis bawah */
+.garisbawah-acara {
+  position: absolute;
+  top: 15rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 20rem;
+  z-index: 1;
+  background-image: var(--boxgarisbawah-acara);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-.lokasi-description {
-  font-size: 1rem;
-  color: #5d4037;
-  margin-bottom: 1.5rem;
-  padding: 0 1rem;
+/* Elemen bawah */
+.bawah-acara {
+  position: absolute;
+  top: 16rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 20rem;
+  z-index: 1;
+  background-image: var(--boxbawah-acara);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-.maps-button {
-  display: inline-block;
-  background-color: #9c6c4a;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 30px;
-  font-weight: bold;
-  font-size: 1rem;
-  text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  transition: background-color 0.3s ease, transform 0.2s ease;
+
+/* PESAN */
+.pesan{
+  padding-bottom: 5rem;
+  margin: 5rem auto 2rem auto; /* Tengah horizontal + jarak atas bawah */
+  max-width: 500px;
+  z-index: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.maps-button:hover {
-  background-color: #8d4a21;
-  transform: translateY(-2px);
+.atas-pesan {
+  position: absolute;
+  top: -3.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 20rem;
+  z-index: 1;
+  background-image: var(--boxatas-pesan);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-.event-details p {
-    text-align: center;
-    margin: 0.5rem 0;
-    font-size: 15px;
-    line-height: 1.6;
-    font-family: "Lora", serif;
-    color: #5a3e36;
+/* Garis atas */
+.garisatas-pesan {
+  position: absolute;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 20rem;
+  z-index: 1;
+  background-image: var(--boxgarisatas-pesan);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-.event-details h3 {
-    margin-bottom: 1rem;
-    color: #29140a;
+/* Garis bawah */
+.garisbawah-pesan {
+  position: absolute;
+  top: 11rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 20rem;
+  z-index: 1;
+  background-image: var(--boxgarisbawah-pesan);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-.rsvp-section h3 {
-    margin-bottom: 1rem;
-    color: #d2691e;
+/* Elemen bawah */
+.bawah-pesan {
+  position: absolute;
+  top: 12rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 20rem;
+  z-index: 1;
+  background-image: var(--boxbawah-pesan);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
+/* AMPLOP ONLINE */
+
+.amplop-section{
+  padding-bottom: 6rem;
+  margin: 5rem auto 2rem auto; /* Tengah horizontal + jarak atas bawah */
+  max-width: 500px;
+  z-index: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.atas-amlop {
+  position: absolute;
+  top: -3.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 20rem;
+  z-index: 1;
+  background-image: var(--boxatas-amlop);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Garis atas */
+.garisatas-amlop {
+  position: absolute;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 20rem;
+  z-index: 1;
+  background-image: var(--boxgarisatas-amlop);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Garis bawah */
+.garisbawah-amlop {
+  position: absolute;
+  top: 16.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 20rem;
+  z-index: 1;
+  background-image: var(--boxgarisbawah-amlop);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Elemen bawah */
+.bawah-amlop {
+  position: absolute;
+  top: 17.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 20rem;
+  z-index: 1;
+  background-image: var(--boxbawah-amlop);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.garisbawah-amlop,
+.bawah-amlop {
+  transition: top 0.8s ease;
+}
+
+.garisbawah-amlop.turun {
+  top: 37rem; /* naik dari 16.5rem */
+}
+
+.bawah-amlop.turun {
+  top: 38rem; /* naik dari 17.5rem */
+}
 
 .amplop-button {
   display: inline-block;
-  background-color: #9c6c4a;
-  color: white;
+  background-color: #D5B253;
+  color: #E0DDD5;
   padding: 0.75rem 1.5rem;
   border-radius: 30px;
   font-weight: bold;
   font-size: 1rem;
+  z-index: 2;
   text-decoration: none;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .amplop-button:hover {
-    background-color: #8d4a21;
+    z-index: 2;
+    background-color: #E5C07B;
   transform: translateY(-2px);
 }
 
@@ -459,8 +684,19 @@ body {
   overflow-wrap: break-word;
 }
 
+.rekeningku-enter-active{
+  Transition: all 0.1s ease;
+}
+.rekeningku-leave-active {
+  transition: all 0.15s ease;
+}
+.rekeningku-enter-from,
+.rekeningku-leave-to {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
 .rekening-item {
-  background-color: #fffaf5;
   padding: 1rem;
   border-radius: 10px;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
@@ -482,7 +718,7 @@ body {
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 20px;
-  background-color: #9c6c4a;
+  background-color: #D5B253;
   color: white;
   font-weight: bold;
   cursor: pointer;
@@ -490,8 +726,289 @@ body {
 }
 
 .copy-btn:hover {
-  background-color: #8d4a21;
+  background-color: #E5C07B;
 }
+
+/* LOKASI */
+
+.lokasi{
+  padding-bottom: 5rem;
+  margin: 5rem auto 2rem auto; /* Tengah horizontal + jarak atas bawah */
+  max-width: 500px;
+  z-index: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.atas-lokasi {
+  position: absolute;
+  top: -3.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 20rem;
+  z-index: 1;
+  background-image: var(--boxatas-lokasi);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Garis atas */
+.garisatas-lokasi {
+  position: absolute;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 20rem;
+  z-index: 1;
+  background-image: var(--boxgarisatas-lokasi);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Garis bawah */
+.garisbawah-lokasi {
+  position: absolute;
+  top: 16.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 20rem;
+  z-index: 1;
+  background-image: var(--boxgarisbawah-lokasi);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Elemen bawah */
+.bawah-lokasi {
+  position: absolute;
+  top: 17.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 20rem;
+  z-index: 1;
+  background-image: var(--boxbawah-lokasi);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+
+.makna{
+  position: relative;
+  padding-bottom: 3rem;
+  margin: 5rem auto 2rem auto; /* Tengah horizontal + jarak atas bawah */
+  max-width: 500px;
+  z-index: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.atas-makna {
+  position: absolute;
+  top: -3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 20rem;
+  z-index: 1;
+  background-image: var(--boxatas-makna);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Garis atas */
+.garisatas-makna {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 20rem;
+  z-index: 1;
+  background-image: var(--boxgarisatas-makna);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Garis bawah */
+.garisbawah-makna {
+  position: absolute;
+  top: 13rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 20rem;
+  z-index: 1;
+  background-image: var(--boxgarisbawah-makna);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Elemen bawah */
+.bawah-makna {
+  position: absolute;
+  top: 14rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 20rem;
+  z-index: 1;
+  background-image: var(--boxbawah-makna);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.atasnya {
+  position: relative;
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 5rem auto 2rem auto; /* Tengah horizontal + jarak atas bawah */
+  max-width: 500px;
+  z-index: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Elemen atas */
+.atas-atasnya {
+  position: absolute;
+  top: -4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 20rem;
+  z-index: 1;
+  background-image: var(--boxatasatasnya);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Garis atas */
+.garisatas-atasnya {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 20rem;
+  z-index: 1;
+  background-image: var(--boxgarisatas-atasnya);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Garis bawah */
+.garisbawah-atasnya {
+  position: absolute;
+  top: 11rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 20rem;
+  z-index: 1;
+  background-image: var(--boxgarisbawah-atasnya);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Elemen bawah */
+.bawah-atasnya {
+  position: absolute;
+  top: 12rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 20rem;
+  z-index: 1;
+  background-image: var(--boxbawah-atasnya);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+
+
+
+.gallery{
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 2rem auto;
+    max-width: 500px;
+    text-align: center;
+    background-repeat: no-repeat, no-repeat;
+    background-position: center 45rem, center 0rem;
+    background-size: 300px auto, 120px
+}
+
+.lokasi:hover {
+  transform: scale(1.02);
+}
+
+.lokasi-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5rem;
+  color: #DAD3C8;
+  margin-bottom: 1rem;
+}
+
+.lokasi-title p {
+  color: #E0DDD5;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.lokasi-description {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  color: #E0DDD5;
+  margin-bottom: 1.5rem;
+  padding: 0 1rem;
+}
+
+.maps-button {
+  position: relative;
+  display: inline-block;
+  background-color: #D5B253;
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  font-family: "Poppins", sans-serif ;
+  font-size: 1rem;
+  text-decoration: none;
+  z-index: 4;
+  pointer-events: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.maps-button:hover {
+  background-color: #E5C07B;
+  transform: translateY(-2px);
+}
+
+.event-details p {
+  
+    text-align: center;
+    margin: 0.5rem 0;
+    font-size: 15px;
+    line-height: 1.6;
+    font-family: "Poppins", sans-serif;;
+    color: #E0DDD5;
+}
+
+.event-details h3 {
+    font-family:  "Great Vibes", cursive;
+    margin-bottom: 1rem;
+    color: #DAD3C8;
+}
+
 
 .gallery-grid {
   display: grid;
@@ -521,20 +1038,21 @@ body {
 
 .btn-acara {
   display: inline-block;
-  background-color: #9c6c4a;
+  background-color: #D5B253;
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 30px;
   font-weight: bold;
   font-size: 1rem;
   text-decoration: none;
+  z-index: 4;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .btn-acara:hover {
-          background-color: #8d4a21;
-  transform: translateY(-2px);
+  background-color: #E5C07B;
+  /* transform: translateY(-2px); */
 }
  
 

@@ -1,12 +1,22 @@
 <template>
   <div class="invitation-container" :style="{
-  '--bird1': `url(${bird1})`
+  '--bgataskanan': `url(${bgataskanan})`,
+  '--bgataskiri': `url(${bgataskiri})`,
+  '--bgbawahkanan': `url(${bgbawahkanan})`,
+  '--bgbawahkiri': `url(${bgbawahkiri})`,
+  '--bgpinggirkanan': `url(${bgpinggirkanan})`,
+  '--bgpinggirkiri': `url(${bgpinggirkiri})`,
+  '--bgtengah': `url(${bgtengah})`,
+  '--background': `url(${background})`
 }">
-
-<div class="cloud-container">
-  <div class="cloud cloud-1"></div>
-  <div class="cloud cloud-2"></div>
-</div>
+  <div class="bg-ataskanan"></div>
+  <div class="bg-ataskiri"></div>
+  <div class="bg-bawahkanan"></div>
+  <div class="bg-bawahkiri"></div>
+  <div class="bg-pinggirkanan"></div>
+  <div class="bg-pinggirkiri"></div>
+  <div class="bg-tengah"></div>
+   <div class="background"></div>
   <ElementWeb/>
       <div class="music-control">
       <button @click="toggleMusic">
@@ -32,10 +42,14 @@ import gallery4 from '../assets/example4.jpg'
 import gallery5 from '../assets/example5.jpg'
 import gallery6 from '../assets/example6.jpg'
 import gallery7 from '../assets/example7.jpg'
-import gallery8 from '../assets/example8.jpg'
-import gallery9 from '../assets/example9.jpg'
-import bird1 from '../assets/bird1.png'
-import bird2 from '../assets/bird2.png'
+import bgataskanan from '../assets/bg - ataskanan.png'
+import bgataskiri from '../assets/bg - ataskiri.png'
+import bgbawahkanan from '../assets/bg - bawahkanan.png'
+import bgbawahkiri from '../assets/bg-bawahkiri.png'
+import bgpinggirkanan from '../assets/bg-pinggir.png'
+import bgpinggirkiri from '../assets/bg-pinggir2.png'
+import bgtengah from '../assets/bg-tengah.png'
+import background from '../assets/background.png'
 import musicFile from '../assets/musik.mp3'
 
 const isVisibleMakna = ref(false);
@@ -62,7 +76,7 @@ const copied = ref({ burhan: false, tuti: false })
 const galleryImages = [
   gallery1, gallery2, gallery3,
   gallery4, gallery5, gallery6,
-  gallery7, gallery8, gallery9,
+  gallery7,
 ];
 const imageRefs = ref([]);
 
@@ -85,19 +99,16 @@ onMounted(() => {
     audioRef.value.play().then(() => {
       isPlaying.value = true;
     }).catch(() => {
-      // Autoplay mungkin diblokir browser
       isPlaying.value = false;
     });
   }
     const handleVisibilityChange = () => {
     if (document.hidden) {
-      // Tab tidak aktif, pause musik
       if (audioRef.value && isPlaying.value) {
         audioRef.value.pause();
         isPlaying.value = false;
       }
     } else {
-      // Tab aktif, play musik otomatis
       if (audioRef.value && !isPlaying.value) {
         audioRef.value.play().then(() => {
           isPlaying.value = true;
@@ -202,21 +213,16 @@ function scrollToAcara() {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Great+Vibes&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 /* --- Container Utama --- */
 .invitation-container {
   max-width: 600px;
-  margin: 2rem auto;
-  padding: 2rem;
   font-family: 'Arial', sans-serif;
-  color: #5a3e36;
-  background-color: #5a3e36;
+  color: #1c3b2c;
+  background-color: #1c3b2c;
   text-align: center;
   position: relative;
-  z-index: 1;
+  z-index: 0;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
@@ -230,104 +236,121 @@ function scrollToAcara() {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -2;
+  z-index: -3;
   background:
-    var(--bird1) no-repeat 30rem 20rem,
-    var(--bird1) no-repeat 40rem 5rem,
-    var(--bird1) no-repeat 90rem 10rem,
-    linear-gradient(to bottom, #fff5f7, #fbe4d8, #e0a899);
-  background-size: 400px auto, 200px auto, 300px auto, cover;
-  background-repeat: no-repeat, no-repeat;
+    linear-gradient(to bottom, #1C1C1C, #1C1C1C, #1C1C1C);
+  background-repeat: no-repeat;
 }
 
-
-.invitation-container::after {
-  content: "";
+.bg-ataskanan {
   position: fixed;
-  bottom: 0;
-  left: 0;
+  top: 0;
+  right: 0;
   width: 100vw;
-  height: 55vh;
-  z-index: -1;
-  background:
-    linear-gradient(to top, #b26e63 0%, transparent 100%),
-    url('https://images.unsplash.com/photo-1609022163124-4536c7a58554?auto=format&fit=crop&w=1500&q=80') no-repeat center bottom;
-  background-size: cover;
-  opacity: 0.7;
-
-    clip-path: polygon(
-      0 100vh,
-      0 39vh,
-      5% 38vh,
-      10% 36vh,
-      12% 34vh,
-      15% 33vh,
-      17% 32vh,
-      19% 32vh,
-      20% 32vh,
-      22% 32.5vh,
-      30% 33vh,
-      36% 33vh,
-      40% 34vh,
-      41% 34.5vh,
-      44% 34vh,
-      45% 33.5vh,
-      /* 47% 35vh, */
-      48% 34vh,
-      50% 32vh,
-      55% 30vh,
-      68% 28vh,
-      80% 31vh,
-      90% 35vh,
-      92% 32vh,
-      100% 27vh,
-      100% 100vh
-    );
+  height: 100vh;
+  z-index: 0;
+  background-image: var(--bgataskanan);
+  background-repeat: no-repeat;
+  background-position: 35rem 41rem;
+  background-size: 300px auto ;
+  transform: rotate(180deg);
 }
+.bg-ataskiri {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  background-image: var(--bgataskanan);
+  background-repeat: no-repeat;
+  background-position: 35rem 41rem;
+  background-size: 300px auto ;
+  transform: scaleX(-1) rotate(180deg);
+}
+.bg-bawahkanan {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  background-image: var(--bgataskanan);
+  background-repeat: no-repeat;
+  background-position: 35rem 41rem;
+  background-size: 300px auto ;
+  transform: scaleX(-1);
+}
+.bg-bawahkiri {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  background-image: var(--bgataskanan);
+  background-repeat: no-repeat;
+  background-position: 35rem 41rem;
+  background-size: 300px auto ;
+}
+.bg-tengah {
+  position: fixed;
+  top: 0%;
+  right: -10px;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  opacity: 25%;
+  background-image: var(--bgtengah);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 300px auto ;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 34.7rem;
+  width: 48.7rem;
+  height: 100rem;
+  z-index: -2;
+  opacity: 1%;
+  background-image: var(--background);
+  background-repeat: repeat;
+  background-position: center rem;
+  background-size: 100rem auto ;
+}
+
 
 /* Untuk responsif - memastikan konten tetap terlihat */
 @media (max-width: 600px) {
   .invitation-container {
     padding: 1rem;
   }
-  .invitation-container::after { 
-    clip-path: polygon(
-      0 100vh,
-      0 39vh,
-      5% 38vh,
-      10% 36vh,
-      12% 34vh,
-      15% 33vh,
-      17% 32vh,
-      19% 32vh,
-      20% 32vh,
-      22% 32.5vh,
-      30% 33vh,
-      36% 33vh,
-      40% 34vh,
-      41% 34.5vh,
-      44% 34vh,
-      45% 33.5vh,
-      /* 47% 35vh, */
-      48% 34vh,
-      50% 32vh,
-      55% 30vh,
-      68% 28vh,
-      80% 31vh,
-      90% 35vh,
-      92% 32vh,
-      100% 27vh,
-      100% 100vh
-    );
-  }
     .invitation-container::before {
-    background:
-      var(--bird1) no-repeat 10% 60px,
-      var(--bird1) no-repeat 70% 200px,
-      var(--bird1) no-repeat 3rem 20rem,
-      linear-gradient(to bottom, #fff5f7, #fbe4d8, #e0a899);
-    background-size: 100px auto, 200px auto, 300px auto, cover;
-    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+ content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  background:
+    var(--bawahkiri) no-repeat -6rem 33rem,
+    var(--bawahkanan) no-repeat 17rem 33rem,
+    var(--ataskiri) no-repeat -1rem -2rem,
+    var(--ataskanan) no-repeat 18rem -2rem,
+    linear-gradient(to bottom, #f0f8f4, #e9f3ed, #dbe9de);
+  background-size:
+    15rem,
+    15rem,
+    10rem,
+    10rem,
+    cover,
+    cover,
+    cover,
+    cover;
+  background-repeat: no-repeat;
   }
 }
 .bird {
@@ -346,28 +369,6 @@ function scrollToAcara() {
   pointer-events: none;
 }
 
-.cloud {
-  position: absolute;
-  background-image: url('https://cdn-icons-png.flaticon.com/512/414/414927.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  opacity: 0.3;
-  width: 100px;
-  height: 60px;
-  animation: moveCloud 60s linear infinite;
-}
-
-.cloud-1 {
-  top: 0;
-  left: -120px;
-  animation-delay: 0s;
-}
-
-.cloud-2 {
-  top: 40px;
-  left: -200px;
-  animation-delay: 10s;
-}
 .watermark {
   position: fixed;
   bottom: 10px;
