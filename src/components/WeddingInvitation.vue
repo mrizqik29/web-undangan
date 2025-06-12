@@ -403,7 +403,7 @@ function scrollToAcara() {
 }
 
 .music-control button {
-  background-color: #5a3e36;
+  background-color: #b18f30;
   color: white;
   border: none;
   padding: 10px 20px;

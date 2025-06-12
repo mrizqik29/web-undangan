@@ -182,8 +182,13 @@
     ref="galleryref"
     class="gallery fade-in"
     :class="{ visible: isVisibleGaleri }"
-    >
-      <h3 class="lokasi-title">Galeri Kami</h3>
+    :style="{
+                '--gambaratas': `url(${gambaratas})`,
+                '--gambarbawah': `url(${gambarbawah})`
+            }">
+      <div class="gambaratas"></div>
+      <div class="gambarbawah"></div>
+      <h3 class="gambar-title">Galeri Kami</h3>
       <div class="gallery-grid">
         <img
           v-for="(img, index) in galleryImages"
@@ -195,6 +200,8 @@
         />
       </div>
     </section>
+
+
     <section
     ref="pesanRef"
     class="pesan fade-in"
@@ -237,6 +244,8 @@ import gallery7 from '../assets/example7.jpg'
 import boxatas from '../assets/box-atas.png'
 import boxbawah from '../assets/box-bawah.png'
 import boxgaris from '../assets/box-garis.png'
+import gambaratas from '../assets/gambar1.png'
+import gambarbawah from '../assets/gambar2.png'
 
 // GANTI EVENTDATE JIKA TANGGAL DIGANTI
 const eventDate = ref('2026-06-01T15:00:00')
@@ -937,14 +946,49 @@ body {
 
 
 .gallery{
-    padding: 2rem;
-    border-radius: 10px;
-    margin: 2rem auto;
-    max-width: 500px;
-    text-align: center;
-    background-repeat: no-repeat, no-repeat;
-    background-position: center 45rem, center 0rem;
-    background-size: 300px auto, 120px
+  position: relative;
+  padding-bottom: 5rem;
+  margin: 5rem auto 2rem auto; /* Tengah horizontal + jarak atas bawah */
+  max-width: 500px;
+  z-index: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gambar-title{
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5rem;
+  color: #DAD3C8;
+  padding-bottom: 1rem;
+}
+
+.gambaratas {
+  position: absolute;
+  top: 6rem;
+  left: -25%;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  background-image: var(--gambaratas);
+  background-repeat: no-repeat;
+  background-position: 5rem 2.5rem;
+  background-size: 200px auto;
+}
+
+.gambarbawah {
+  position: absolute;
+  top: 6rem;
+  left: -25%;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  background-image: var(--gambarbawah) ;
+  background-position: 78.5rem 12rem;
+  background-repeat: no-repeat;
+  background-size: 200px auto;
+ transform: rotate(180deg);
 }
 
 .lokasi:hover {
