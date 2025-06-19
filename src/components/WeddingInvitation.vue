@@ -215,21 +215,17 @@ function scrollToAcara() {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Great+Vibes&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 /* --- Container Utama --- */
-.invitation-container {
-  max-width: 600px;
-  font-family: 'Arial', sans-serif;
-  color: #1c3b2c;
-  background-color: #1c3b2c;
-  text-align: center;
+/* .invitation-container {
+  max-width: 780px;
+  left: 0.2rem; 
   position: relative;
   z-index: 0;
   overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  background: transparent;
+  margin: auto;
+
 }
-/* 🌄 Background Pernikahan - Gunung & Gradasi Warna */
-.invitation-container::before {
+
+.invitation-container::before{
   content: "";
   position: fixed;
   top: 0;
@@ -240,7 +236,8 @@ function scrollToAcara() {
   background:
     linear-gradient(to bottom, #1C1C1C, #1C1C1C, #1C1C1C);
   background-repeat: no-repeat;
-}
+} */
+
 
 .bg-ataskanan {
   position: fixed;
@@ -251,7 +248,7 @@ function scrollToAcara() {
   z-index: 0;
   background-image: var(--bgataskanan);
   background-repeat: no-repeat;
-  background-position: 35rem 41rem;
+  background-position: 34.2rem 41rem;
   background-size: 300px auto ;
   transform: rotate(180deg);
 }
@@ -264,7 +261,7 @@ function scrollToAcara() {
   z-index: 0;
   background-image: var(--bgataskanan);
   background-repeat: no-repeat;
-  background-position: 35rem 41rem;
+  background-position: 35.5rem 41rem;
   background-size: 300px auto ;
   transform: scaleX(-1) rotate(180deg);
 }
@@ -277,7 +274,7 @@ function scrollToAcara() {
   z-index: 0;
   background-image: var(--bgataskanan);
   background-repeat: no-repeat;
-  background-position: 35rem 41rem;
+  background-position: 34.2rem 41rem;
   background-size: 300px auto ;
   transform: scaleX(-1);
 }
@@ -290,7 +287,7 @@ function scrollToAcara() {
   z-index: 0;
   background-image: var(--bgataskanan);
   background-repeat: no-repeat;
-  background-position: 35rem 41rem;
+  background-position: 35.5rem 41rem;
   background-size: 300px auto ;
 }
 .bg-tengah {
@@ -310,64 +307,17 @@ function scrollToAcara() {
 .background {
   position: fixed;
   top: 0;
-  left: 34.7rem;
+  left: 35.3rem;
   width: 48.7rem;
   height: 100rem;
   z-index: -2;
-  opacity: 1%;
+  opacity: 2%;
   background-image: var(--background);
   background-repeat: repeat;
   background-position: center rem;
   background-size: 100rem auto ;
 }
 
-
-/* Untuk responsif - memastikan konten tetap terlihat */
-@media (max-width: 600px) {
-  .invitation-container {
-    padding: 1rem;
-  }
-    .invitation-container::before {
- content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -2;
-  background:
-    var(--bawahkiri) no-repeat -6rem 33rem,
-    var(--bawahkanan) no-repeat 17rem 33rem,
-    var(--ataskiri) no-repeat -1rem -2rem,
-    var(--ataskanan) no-repeat 18rem -2rem,
-    linear-gradient(to bottom, #f0f8f4, #e9f3ed, #dbe9de);
-  background-size:
-    15rem,
-    15rem,
-    10rem,
-    10rem,
-    cover,
-    cover,
-    cover,
-    cover;
-  background-repeat: no-repeat;
-  }
-}
-.bird {
-  position: absolute;
-  top: 50px;
-  left: 50px;
-  width: 50rem;
-  opacity: 0.7;
-}
-.cloud-container {
-  position: fixed;
-  top: 10vh;
-  left: 0;
-  width: 100vw;
-  z-index: -2;
-  pointer-events: none;
-}
 
 .watermark {
   position: fixed;
@@ -418,20 +368,9 @@ function scrollToAcara() {
   background-color: #7a564a;
 }
 
-/* Responsif: tombol mengecil di layar kecil */
-@media (max-width: 500px) {
-  .music-control button {
-    padding: 8px 16px;
-    font-size: 8px;
-  }
-}
-
-
-
-
 
 /* --- ANIMASI --- */
-html {
+/* html {
     scroll-behavior: smooth;
 }
 .fade-in {
@@ -443,6 +382,148 @@ html {
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
+} */
+
+
+/* Respnsive cuy */
+@media (max-width: 500px) {
+  .music-control button {
+    padding: 8px 16px;
+    font-size: 8px;
+  }
 }
 
+@media (max-width: 768px) {
+.invitation-container {
+  max-width: 900px;
+  left: 0rem; 
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  margin: auto;
+
+}
+
+.invitation-container::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -3;
+  background: linear-gradient(to bottom, #1C1C1C, #1C1C1C, #1C1C1C);
+  background-repeat: no-repeat;
+}
+.bg-ataskanan {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+
+  background-image: var(--bgataskanan);
+  background-repeat: no-repeat;
+  background-position: -0.3rem 48rem;
+  background-size: 150px auto ;
+  transform: rotate(180deg);
+}
+.bg-ataskiri {
+  position: fixed;
+  top: 0;
+  right: 3.7rem;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  background-image: var(--bgataskanan);
+  background-repeat: no-repeat;
+  background-position: 1rem 48.1rem;
+  background-size: 150px auto ;
+  transform: scaleX(-1) rotate(180deg);
+}
+.bg-bawahkanan {
+  position: fixed;
+  top: 5.4rem;
+  right: -2.5rem;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  background-image: var(--bgataskanan);
+  background-repeat: no-repeat;
+  background-position: 2.2rem 48.1rem;
+  background-size: 150px auto ;
+  transform: scaleX(-1);
+}
+.bg-bawahkiri {
+  position: fixed;
+  top: 5.4rem;
+  right: 3.7rem;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  background-image: var(--bgataskanan);
+  background-repeat: no-repeat;
+  background-position: 1rem 48.1rem;
+  background-size: 150px auto ;
+  
+}
+.bg-pinggirkanan {
+  position: fixed;
+  top: 3rem;
+  right: 26.5rem;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  background-image: var(--bgpinggirkanan);
+  background-repeat: no-repeat;
+  background-position: 1rem center;
+  background-size: 22px auto ;
+    transform: scaleX(-1);
+}
+.bg-pinggirkiri {
+  position: fixed;
+  
+  top: 3rem;
+  left: 26.3rem;
+  width: 10%; 
+  margin: auto;
+  /* padding: 10%; */
+  height: 90%;
+  z-index: 0;
+  background-image: var(--bgpinggirkiri);
+  background-repeat: no-repeat;
+  background-position: 1rem center;
+  background-size: 22px auto ;
+
+}
+.bg-tengah {
+  position: fixed;
+  top: 0;
+  right: 1.2rem;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  opacity: 25%;
+  background-image: var(--bgtengah);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 150px auto ;
+
+}
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 48.7rem;
+  height: 100rem;
+  z-index: -2;
+  opacity: 2%;
+  background-image: var(--background);
+  background-repeat: repeat;
+  background-position: center rem;
+  background-size: 100rem auto ;
+}
+
+}
 </style>
